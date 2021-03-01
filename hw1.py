@@ -1,6 +1,6 @@
 import csv
 
-cwb_filename = 'sample_input.csv'
+cwb_filename = '107061231.csv'
 data = []
 with open(cwb_filename) as csvfile:
     mycsv = csv.DictReader(csvfile)
@@ -15,7 +15,7 @@ with open(cwb_filename) as csvfile:
         MAX = -1
 
         for i in range(num):
-            if float(target_data[i]['TEMP']) > float(MAX):
+            if (float(target_data[i]['TEMP']) > float(MAX)) & (target_data[i]['TEMP'] != '-999') & (target_data[i]['TEMP'] != '-99'):
                 MAX = target_data[i]['TEMP']
         if MAX == -1:
             result = [stationid[j],'NONE']
